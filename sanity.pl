@@ -1,0 +1,16 @@
+sub mustopen {
+  open my $fh, "@_"
+    or die "Can't open '@_': $!";
+  return $fh;
+}
+sub krand {
+  my $RI = mustopen ("dd if=/dev/random bs=1b count=1|od -t u|") ;
+  my $Entropy ;
+  while ($_ = <$RI>) {
+    chomp $_ ;
+    @_ = split ;
+    $Entropy += $_[1] + $_[2] + $_[3] + $_[4] ;
+  }
+  return $Entropy ;
+}
+1;

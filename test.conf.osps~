@@ -1,0 +1,7 @@
+# OSPS v1.0 as the first line.
+# osps: port_range 200-400 {Acceptable port range}
+# osps: encryptor /usr/bin/gpg --local-user osps
+# osps: userlist kron@aikido.com
+# osps: notify mail
+#osps: additional 
+$OSPS_Port

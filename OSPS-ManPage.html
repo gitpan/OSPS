@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Kenneth Kron">
+	<META NAME="CREATED" CONTENT="20040312;21413100">
+	<META NAME="CHANGEDBY" CONTENT="Kenneth Kron">
+	<META NAME="CHANGED" CONTENT="20040312;22295000">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P>OSPS -  (&ocirc; sp -s z ) as in auspices.  Obfuscated Server Port
+Service.</P>
+<P>OSPS is a service port generator and cryptographic communication
+system.  OSPS is designed to make it easier for  you to implement
+need-to-know security for your server port #'s. OSPS is a simple but
+effective system for making  your private services that much harder
+to hack.  If your IDS/IPS is working then you should be fairly able
+to detect a port scan looking for open services and you can defend
+against those to a degree but if you are running your services on WKS
+ports then scanning isn't required nor is any &ldquo;man in the
+middle attack&rdquo;.  OSPS is designed to hide the service port #'s
+from those who do not need to know and yet make them available to
+those who do need to know.</P>
+<P>Services running under the OSPS of OSPS get their listening port
+number randomly generated on a regular basis.  When it's time to
+choose a new port OSPS generates the port # and restarts the service.
+ OSPS then uses public key encryption to encrypt the new port #
+information for all of the authorized users of the service and then
+places that file in a well known location.  Since it is encrypted the
+port # file can even be placed in a public location, emailed to all
+authorized users or placed in a well know but secure location all of
+which is supported by OSPS.</P>
+<P>How does OSPS work.</P>
+<P>Generating new port numbers for services.   The operation of OSPS
+has been modeled after chkconfig which should be familiar to modern
+system admins.</P>
+<P>Invocation:</P>
+<P>osps --debug=\d+ --verbose --ffile {path to OSPSified config file}</P>
+<P>An OSPSified config file will contain the following lines at the
+start of the file</P>
+<P># OSPS v.$x as the first line.</P>
+<P># osps:  port_range=n-m {Acceptable port range}</P>
+<P># osps: encryptor (encryptor and argument list)</P>
+<P># osps: user list (this list will be passed to encryptor &amp;
+notify if notify = mail)</P>
+<P># osps:  notify (none|mail|/path/to/status/file)</P>
+<P>and optionally</P>
+<P>#osps: additional files (absolute path to additional OSPSified
+configuration files which need to be synchronized with this
+configuration file.</P>
+<P>If any of these lines is non-existent osps will exit with an error
+message.</P>
+<P>Scheduling:</P>
+<P>OSPS contains no scheduling information on how often to regenerate
+port #'s OSPS expects to be called by a scheduler/security system
+when it's time to change port #'s.</P>
+<P>OSPS reads /etc/OSPS.conf to decide get it's task list.</P>
+</BODY>
+</HTML>

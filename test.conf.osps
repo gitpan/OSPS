@@ -1,0 +1,7 @@
+# OSPS v1.0 as the first line.
+# osps: port_range 200-400 {Acceptable port range}
+# osps: encryptor /usr/bin/gpg --batch --local-user osps --armor
+# osps: userlist kron@zanshinryu.com
+# osps: notify mail
+#osps: additional 
+$OSPS_Port
